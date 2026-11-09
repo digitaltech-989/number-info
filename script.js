@@ -58,7 +58,7 @@ async function search() {
     }
 
     resultsDiv.innerHTML = '';
-    showStatus('⏳ Searching Darkie Zone database... please wait', 'loading');
+    showStatus('⏳ Searching MonuCyberLab database... please wait', 'loading');
     btn.disabled = true;
 
     try {
@@ -84,7 +84,7 @@ async function search() {
         // 2. Fallback to backup fast API (ftosint.world) if primary didn't return data
         if (!data) {
             try {
-                showStatus('⏳ Connecting to Darkie Zone fast node... please wait', 'loading');
+                showStatus('⏳ Connecting to MonuCyberLab fast node... please wait', 'loading');
                 const res2 = await fetchWithTimeout(`https://ftosint.world/api/number?key=megule&num=${number}`, 9000);
                 if (res2.ok) {
                     const rawText2 = await res2.text();
@@ -312,7 +312,7 @@ function buildCopyText(r, addressClean, num, truecallerName) {
         `🆔 Aadhaar   : ${aadhar}`,
         `📧 Email     : ${email}`,
         `━━━━━━━━━━━━━━━━━`,
-        `🛡️ DARKIE ZONE CYBERSECURITY`,
+        `🛡️ MONUCYBERLAB`,
     ];
     return lines.join('\n');
 }
@@ -320,7 +320,7 @@ function buildCopyText(r, addressClean, num, truecallerName) {
 function buildAllRecordsCopyText(results, truecallerName) {
     const header = [
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-        `🛡️ DARKIE ZONE CYBERSECURITY INTEL`,
+        `🛡️ MONUCYBERLAB INTEL`,
         `📊 Total Records Found: ${results.length}`,
         truecallerName ? `📲 Truecaller: ${truecallerName}` : null,
         `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`,
@@ -333,7 +333,7 @@ function buildAllRecordsCopyText(results, truecallerName) {
         return buildCopyText(r, addressClean, i + 1, truecallerName);
     }).join('\n\n');
 
-    return `${header}${recordsText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛡️ Darkie Zone OSINT Tool`;
+    return `${header}${recordsText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n🛡️ MonuCyberLab OSINT Tool`;
 }
 
 function copyToClipboard(text) {
